@@ -1,5 +1,11 @@
 transactions = []
 
+
+##This project accomplishes the goal of creating a personal finance tracker. 
+#It creates an empty record of transactions and poblates it. 
+# 
+
+
 def display_menu():
     print("\nPersonal Budget Tracker")
     print("1. Add Income")
@@ -24,4 +30,16 @@ def add_transaction(is_income):
         "category": category
     }
     transactions.append(transaction)
+
+
+def view_transactions():
+    if not transactions:
+        print("\nNo transactions to display.")
+        return
+    print("n\Transactions: ")
+    for t in transactions:
+        print(f"{t['description']} - ${t['amount']:.2f}({t['category']})")
+
+
+
 

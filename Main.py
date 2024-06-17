@@ -50,6 +50,27 @@ def view_transactions():
     for t in transactions:
         print(f"{t['description']} - ${t['amount']:.2f}({t['category']})")
 
+def main():
+    while True:
+        display_menu()
+        choice = input("Choose an option: ")
+        if choice == '1':
+            add_transaction(is_income = True)
+        elif choice == '2':
+            add_transaction(is_income = False)
+        elif choice == '3':
+            view_summary()
+        elif choice == '4':
+            view_transactions()
+        elif choice == '5':
+            print("Exiting tracker")
+            break
+        else:
+            print("Please try again.")
+
+
+if __name__ == "__main__":
+    main()
 
 
 

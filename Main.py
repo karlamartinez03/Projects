@@ -32,6 +32,16 @@ def add_transaction(is_income):
     transactions.append(transaction)
 
 
+def view_summary():
+    total_income = sum(t["amount"]for t in transactions 
+    if t["amount"]>0)
+    total_expenses = sum(t["amount"]for t in transactions 
+    if t["amount"]<0)
+    remaining_budget = total_income + total_expenses
+    print(f"\nSummary:\nTotal Income: ${total_income: .2f}")
+    print(f"Total Expenses: ${abs(total_expenses):.2f}")
+    print(f"Remaining Budget: ${remaining_budget: .2f}")
+
 def view_transactions():
     if not transactions:
         print("\nNo transactions to display.")
@@ -39,6 +49,8 @@ def view_transactions():
     print("n\Transactions: ")
     for t in transactions:
         print(f"{t['description']} - ${t['amount']:.2f}({t['category']})")
+
+
 
 
 
